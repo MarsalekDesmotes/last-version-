@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class score : MonoBehaviour
 {
     Text s;
+    public float score_miktar = 0;
     void Start()
     {
         s = GetComponent<Text>();
@@ -15,12 +18,14 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        s.text = "Score:" + (astro_hareket.coins-6);
-        if ((astro_hareket.coins) % 5 == 0)
+        score_miktar += Time.deltaTime;
+        
+        s.text = "Score:" + score_miktar*10;
+        /*if ((astro_hareket.coins) % 5 == 0)
         {
             Debug.Log("oyun hizlaniyor!");
             camera_follow.hiz += 0.1f;
 
-        }
+        } */
     }
 }
